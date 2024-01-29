@@ -1,0 +1,83 @@
+Excerpt from "Chip War: The Fight for the World's Most Critical Technology" by Chris Miller
+
+As the USS Mustin steamed southward in August 2020, the
+world was just beginning to reckon with our reliance on
+semiconductors-and our dependence on Taiwan, which
+fabricates the chips that produce a third of the new computing
+power we use each year. Taiwan's TSMC builds almost all the
+world's most advanced processor chips. When COVID slammed
+into the world in 2020, it disrupted the chip industry, too. Some
+factories were temporarily shuttered. Purchases of chips for autos
+slumped. Demand for PC and data center chips spiked higher, as
+much of the world prepared to work from home. Then, over 2021, 
+a series of accidents-a fire in a Japanese semiconductor facility;
+ice storms in Texas, a center of U.S. chipmaking; and a new round
+of COVID lockdowns in Malaysia, where many chips are
+assembled and tested-intensified these disruptions. Suddenly,
+many industries far from Silicon Valley faced debilitating chip
+shortages. Big carmakers from Toyota to General Motors had to
+shut factories for weeks because they couldn't acquire the
+semiconductors they needed. Shortages of even the simplest
+chips caused factory closures on the opposite side of the world. It
+seemed like a perfect image of globalization gone wrong.
+
+Political leaders in the U.S., Europe, and Japan hadn't thought
+much about semiconductors in decades. Like the rest of us, they
+thought "tech" meant search engines or social media, not silicon
+wafers. When Joe Biden and Angela Merkel asked why their
+country's car factories were shuttered, the answer was shrouded
+behind semiconductor supply chains of bewildering complexity. A
+typical chip might be designed with blueprints from the
+Japanese-owned, UK-based company called Arm, by a team of
+engineers in California and Israel, using design software from the
+United States. When a design is complete, it's sent to a facility in
+Taiwan, which buys ultra-pure silicon wafers and specialized gases
+from Japan. The design is carved into silicon using some of the
+world's most precise machinery, which can etch, deposit, and
+measure layers of materials a few atoms thick. These tools are
+produced primarily by five companies, one Dutch, one Japanese, 
+and three Californian, without which advanced chips are basically
+impossible to make. Then the chip is packaged and tested, often
+in Southeast Asia, before being sent to China for assembly into a
+phone or computer.
+
+If any one of the steps in the semiconductor production
+process is interrupted, the world's supply of new computing
+power is imperiled. In the age of AI, it's often said that data is the
+new oil. Yet the real limitation we face isn't the availability of data
+but of processing power. There's a finite number of
+semiconductors that can store and process data. Producing them
+is mind-bogglingly complex and horrendously expensive. Unlike
+oil, which can be bought from many countries, our production of
+computing power depends fundamentally on a series of choke
+points: tools, chemicals, and software that often are produced by a
+handful of companies-and sometimes only by one. No other
+facet of the economy is so dependent on so few firms. Chips from
+Taiwan provide 37 percent of the world's new computing power
+each year. Two Korean companies produce 44 percent of the
+world's memory chips. The Dutch company ASML builds 100
+percent of the world's extreme ultraviolet lithography machines,
+without which cutting-edge chips are simply impossible to make.
+OPEC's 40 percent share of world oil production looks
+unimpressive by comparison.
+
+The global network of companies that annually produces a
+trillion chips at nanometer scale is a triumph of efficiency. It's 
+also a staggering vulnerability. The disruptions of the pandemic
+provide just a glimpse of what a single well-placed earthquake
+could do to the global economy. Taiwan sits atop a fault line that
+as recently as 1999 produced an earthquake measuring 7.3 on the
+Richter scale. Thankfully, this only knocked chip production
+offline for a couple of days. But it's only a matter of time before a
+stronger quake strikes Taiwan. A devastating quake could also hit
+Japan, an earthquake-prone country that produces 17 percent of
+the world's chips, or Silicon Valley, which today produces few
+chips but builds crucial chipmaking machinery in facilities sitting
+atop the San Andreas Fault.
+Yet the seismic shift that most imperils semiconductor supply
+today isn't the crash of tectonic plates but the clash of great
+powers. As China and the United States struggle for supremacy,
+both Washington and Beijing are fixated on controlling the future
+of computing-and, to a frightening degree, that future is
+dependent on a small island that Beijing considers a renegade
+province and America has committed to defend by force.

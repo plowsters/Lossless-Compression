@@ -1,0 +1,61 @@
+Excerpt from "This is How They Tell Me the World Ends" by Nicole Perlroth
+
+On June 27, 2017, Russia fired the NSA's cyberweapons into
+Ukraine in what became the most destructive and costly cyberattack
+in world history. That afternoon Ukrainians woke up to black screens
+everywhere. They could not take money from ATMs, pay for gas at
+stations, send or receive mail, pay for a train ticket, buy groceries,
+get paid, or-perhaps most terrifying of all-monitor radiation levels
+at Chernobyl. And that was just in Ukraine.
+The attack hit any company that did any business in Ukraine. All it
+took was a single Ukrainian employee working remotely for the
+attack to shut down entire networks. Computers at Pfizer and Merck,
+the pharmaceutical companies; at Maersk, the shipping
+conglomerate; at FedEx, and at a Cadbury chocolate factory in
+Tasmania were all hijacked. The attack even boomeranged back on
+Russia, destroying data at Rosneft, Russia's state-owned oil giant,
+and Evraz, the steelmaker owned by two Russian oligarchs. The
+Russians had used the NSA's stolen code as a rocket to propel its
+malware around the globe. The hack that circled the world would
+cost Merck and FedEx, alone, $1 billion.
+By the time I visited Kyiv in 2019, the tally of damages from that
+single Russian attack exceeded $10 billion, and estimates were still
+climbing. Shipping and railway systems had still not regained full
+capacity. All over Ukraine, people were still trying to find packages
+that had been lost when the shipment tracking systems went down.
+They were still owed pension checks that had been held up in the
+attack. The records of who was owed what had been obliterated.
+Security researchers had given the attack an unfortunate name:
+NotPetya. They initially assumed it was ransomware called Petya,
+only to find out later that Russian hackers had specifically designed
+NotPetya to appear as run-of-the-mill ransomware, though it was not
+ransomware at all. Even if you paid the ransom, there was no
+chance of getting any data back. This was a nation-state weapon
+designed to exact mass destruction.
+I spent the next two weeks in Ukraine ducking frigid air blasts
+from Siberia. I met with journalists. I walked Independence Square
+with protesters as they recounted the bloodiest days of the
+revolution. I trekked out to the industrial zone to meet with digital
+detectives who walked me through the digital wreckage of NotPetya.
+I met with Ukrainians whose family business-tax reporting software
+used by every major Ukrainian agency and company-had been
+Patient Zero for the attacks. The Russians had cleverly disguised
+their malware as a tax software update from the company's systems,
+and now all its mom-and-pop operators could do was half cry, half
+laugh at the role they had played in nation-state cyberwar. I spoke
+with the head of Ukraine's cyber police force and with any Ukrainian
+minister who would have me.
+I visited with American diplomats at the U.S. embassy just before
+they became entangled in the impeachment of President Donald
+Trump. On the day I visited, they were overwhelmed by Russia's
+latest disinformation campaign: Russian trolls had been inundating
+Facebook pages frequented by young Ukrainian mothers with antivaccination propaganda. This, as the country reeled from the worst
+measles outbreak in modern history. Ukraine now had one of the
+lowest vaccination rates in the world and the Kremlin was
+capitalizing on the chaos. Ukraine's outbreak was already spreading
+back to the States, where Russian trolls were now pushing antivaxxer memes on Americans. American officials seemed at a loss for
+how to contain it. (And they were no better prepared when, one year
+later, Russians seized on the pandemic to push conspiracy theories
+that Covid-19 was an American-made bioweapon, or a sinister plot
+by Bill Gates to profit off vaccines.) There seemed no bottom to the
+lengths Russia was willing to go to divide and conquer.
