@@ -19,15 +19,10 @@ public:
 	//stores a single word in the filestream at a time
 	std::string iterateTXT;
 
-	//2D array that stores [unique string][number value]
-	std::string **outputTXT;
-	std::string *outputTXT = new std::string[2];
-
-	void allocateMemory(std::string** outputTXT) {
-		for (int i = 0; i < 2; i++) {
-			std::string outputTXT[i] = new std::string[1000];
-		}
-	}
+	//unique strings are stored in outputTXT, their number
+	//assignment is stored in uniqueNum
+	std::string outputTXT[5000];
+	int uniqueNum[5000];
 	
 
 	/*
@@ -63,44 +58,44 @@ public:
 	}
 
 
-	//Inc: fix 2D array parameter in func
-	bool binarySearch(std::string outputTXT, int numWordsArr[], std::string value, int k) {
-		int first = 0,
-			last = numWordsArr[k] - 1,
-			middle,
-			position = -1;
+	//searches array for a matching string
+	bool linearSearch(std::string arr[], int numWordsArr[], std::string value, int k) {
+		int index = 0;
 		bool found = false;
 
-		while (!found && first <= last) {
-			middle = (first + last) / 2;
-			if (outputTXT[k][middle] == value) {
+		while (!found && index < numWordsArr[k]) {
+			if (arr[index] == value) {
 				found = true;
-				position = middle;
 			}
-			else if (outputTXT[k][middle] > value) {
-				last = middle - 1;
-			}
-			else {
-				first = middle + 1;
-			}
+			index++;
 		}
 		return found;
 	}
 
-	//Inc: call uniqueNumBinarySearch using correct parameters,
-	//	if binarySearch == false,
+	//Inc: call linearSearch using correct parameters,
+	//	if linearSearch == false,
 	//		assign uniqueNum_n to outputTXT[1][n] and uniqueWord_n to outputTXT[2][n]
 	void numAssign() {
 		std::ifstream inputFile;
-		for (int i = 0; i < 3; i++)
+		int wordCounter = 0;
+		for (int i = 0; i < 3; i++) {
 			inputFile.open(fileOptions[i]);
-		while (inputFile.is_open()) {
-			inputFile >> iterateTXT;
-			if (binarySearch(std::string outputTXT[j][], int numWords[j], std::string iterateTXT, int j ) == false) {
-
+			while (inputFile.is_open()) {
+				inputFile >> iterateTXT;
+				if (linearSearch(outputTXT, numWords, iterateTXT, i) == false) {
+					outputTXT[wordCounter] = iterateTXT;
+					uniqueNum[wordCounter] = wordCounter + 1;
+					std::cout << outputTXT[wordCounter];
+					wordCounter++;
+				}
+				if (inputFile.eof()) {
+					inputFile.clear();
+					inputFile.close();
+				}
 			}
 		}
 	}
+
 	//Keep track of unique words (assign a number)
 	// Create output file with numbers in order of input file
 	//Ignore punctuation and newlines
@@ -116,6 +111,8 @@ public:
 };
 
 int main() {
-	compress compressor;
-	compressor.readFiles();
+	compress cmp;
+	cmp.readFiles();
+	cmp.numAssign();
+	return 0;
 }
