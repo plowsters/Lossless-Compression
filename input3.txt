@@ -74,6 +74,7 @@ Japan, an earthquake-prone country that produces 17 percent of
 the world's chips, or Silicon Valley, which today produces few
 chips but builds crucial chipmaking machinery in facilities sitting
 atop the San Andreas Fault.
+
 Yet the seismic shift that most imperils semiconductor supply
 today isn't the crash of tectonic plates but the clash of great
 powers. As China and the United States struggle for supremacy,

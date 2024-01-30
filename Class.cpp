@@ -19,6 +19,10 @@ public:
 	//stores a single word in the filestream at a time
 	std::string iterateTXT;
 
+	//string of punctuation marks used to remove punctuation from
+	//iterateTXT before storing in array
+	std::string punctuationMarks = "!.,\"?;:()";
+
 	//unique strings are stored in outputTXT, their number
 	//assignment is stored in uniqueNum
 	std::string outputTXT[5000];
@@ -82,10 +86,13 @@ public:
 			inputFile.open(fileOptions[i]);
 			while (inputFile.is_open()) {
 				inputFile >> iterateTXT;
+				for (char punctuation : punctuationMarks) {
+					iterateTXT.erase(remove(iterateTXT.begin(), iterateTXT.end(), punctuation), iterateTXT.end());
+				}
 				if (linearSearch(outputTXT, numWords, iterateTXT, i) == false) {
 					outputTXT[wordCounter] = iterateTXT;
 					uniqueNum[wordCounter] = wordCounter + 1;
-					std::cout << outputTXT[wordCounter];
+					std::cout << outputTXT[wordCounter] + " ";
 					wordCounter++;
 				}
 				if (inputFile.eof()) {
@@ -94,6 +101,7 @@ public:
 				}
 			}
 		}
+		int r = 0;;
 	}
 
 	//Keep track of unique words (assign a number)
