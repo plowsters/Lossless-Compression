@@ -1,126 +1,107 @@
-#include <fstream>
-#include <iostream>
-#include <string>
+#include "header.h"
 
-class compress {
-
-//Public variables and functions
-public:
-	//Tracks # of words in file
-	int numWords[3] = { 0,0,0 };
+//Constructor
+compress::compress() {
 	
-	//List of files available for compression
-	std::string fileOptions[3] = {
-			"input1.txt",
-			"input2.txt",
-			"input3.txt"
-	};
+	//Initializing variables
+	numWords[0] = 0;
+	numWords[1] = 0;
+	numWords[2] = 0;
+	wordCounter[0] = 0;
+	wordCounter[1] = 0;
+	wordCounter[2] = 0;
+	inputFileOptions[0] = "input1.txt";
+	inputFileOptions[1] = "input2.txt";
+	inputFileOptions[2] = "input3.txt";
+	outputFileOptions[0] = "output1.txt";
+	outputFileOptions[1] = "output2.txt";
+	outputFileOptions[2] = "output3.txt";
+	punctuationMarks = "!.,\"?;:()";
+}
 
-	//stores a single word in the filestream at a time
-	std::string iterateTXT;
-
-	//string of punctuation marks used to remove punctuation from
-	//iterateTXT before storing in array
-	std::string punctuationMarks = "!.,\"?;:()";
-
-	//unique strings are stored in outputTXT, their number
-	//assignment is stored in uniqueNum
-	std::string outputTXT[5000];
-	int uniqueNum[5000];
-	
-
-	/*
-	The function readFiles opens and reads 3 "input.txt" files
-	and stores the number of words in an array numWords[].
-
-	Parameters:
-	None
-
-	Returns:
-	None
-	*/
-	void readFiles() {
+	void compress::readFiles() {
 		std::ifstream inputFile;
-
-		//Note: After making compressFile(), come back and reassign 
-		//fileOptions using dynamically allocated array of user input 
-		//for filenames.
-
-		//Iterate over each of the three files
-		for (int i = 0; i < 3; i++) {
-			inputFile.open(fileOptions[i]);
-			while (inputFile.is_open()) {
-				inputFile >> iterateTXT;
-				numWords[i]++;
-				if (inputFile.eof()) {
-					inputFile.clear();
-					inputFile.close();
+		try {
+			//Iterate over each of the three files
+			for (int i = 0; i < 3; i++) {
+				inputFile.open(inputFileOptions[i]);
+				//Error Checking
+				if (!inputFile.is_open()) {
+					throw std::runtime_error("Failed to open input file: " + inputFileOptions[i]);
 				}
+				while (inputFile >> iterateTXT) {
+					//Removes punctuation from words
+					for (char punctuation : punctuationMarks) {
+						iterateTXT.erase(remove(iterateTXT.begin(), iterateTXT.end(), punctuation), iterateTXT.end());
+					}
+					//Stores each word in an array
+					outputTXT[i][numWords[i]] = iterateTXT;
+					numWords[i]++;
+					//Values stored in 2D array so that the set of unique words
+					//and unique numbers for each input file is stored separately
+					if (linearSearch(uniqueWords, numWords[i], iterateTXT, i) < 0) {
+						uniqueWords[i][wordCounter[i]] = iterateTXT;
+						uniqueNum[i][wordCounter[i]] = wordCounter[i] + 1;
+						std::cout << uniqueWords[i][wordCounter[i]] + " ";
+						wordCounter[i]++;
+					}
+					//Checks if there are any more words in the file, closes the file if finished
+					if (inputFile.eof()) {
+						inputFile.clear();
+						inputFile.close();
+					}
+				}
+				
 			}
+		}
+		//Evaluates error message
+		catch (const std::exception& e) {
+			std::cerr << "Error: " << e.what() << std::endl;
 
 		}
 	}
 
+	void compress::writeFiles() {
+		std::ofstream outputFile;
+		try {
+			//Iterates over each of the three files
+			for (int i = 0; i < 3; i++) {
+				outputFile.open(outputFileOptions[i]);
+				//Error Checking
+				if (!outputFile.is_open()) {
+					throw std::runtime_error("Failed to open output file: " + outputFileOptions[i]);
+				}
+				//Print list of unique words
+				for (int j = 0; j < wordCounter[i]; j++) {
+					outputFile << uniqueNum[i][j] << ": " << uniqueWords[i][j] << std::endl;
+				}
+				//Loops based on the number of words in each text file
+				//To write unique numbers in place of words to output files
+				for (int j = numWords[i]; j > 0; j--) {
+					iterateTXT = outputTXT[i][numWords[i] - j];
+					int identifier = linearSearch(uniqueWords, numWords[i], iterateTXT, i);
+					outputFile << uniqueNum[i][identifier] << " ";
+				}
+				outputFile.close();
+			}
+		}
+		//Evaluates error message
+		catch (const std::exception& e) {
+			std::cerr << "Error: " << e.what() << std::endl;
 
-	//searches array for a matching string
-	bool linearSearch(std::string arr[], int numWordsArr[], std::string value, int k) {
+		}
+	}
+
+	int compress::linearSearch(std::string arr[][3000], int wordCount, std::string value, int k) {
 		int index = 0;
+		int position = -1;
 		bool found = false;
-
-		while (!found && index < numWordsArr[k]) {
-			if (arr[index] == value) {
+		while (!found && index < wordCount) {
+			if (arr[k][index] == value) {
 				found = true;
+				position = index;
 			}
 			index++;
 		}
-		return found;
+		return position;
 	}
-
-	//Inc: call linearSearch using correct parameters,
-	//	if linearSearch == false,
-	//		assign uniqueNum_n to outputTXT[1][n] and uniqueWord_n to outputTXT[2][n]
-	void numAssign() {
-		std::ifstream inputFile;
-		int wordCounter = 0;
-		for (int i = 0; i < 3; i++) {
-			inputFile.open(fileOptions[i]);
-			while (inputFile.is_open()) {
-				inputFile >> iterateTXT;
-				for (char punctuation : punctuationMarks) {
-					iterateTXT.erase(remove(iterateTXT.begin(), iterateTXT.end(), punctuation), iterateTXT.end());
-				}
-				if (linearSearch(outputTXT, numWords, iterateTXT, i) == false) {
-					outputTXT[wordCounter] = iterateTXT;
-					uniqueNum[wordCounter] = wordCounter + 1;
-					std::cout << outputTXT[wordCounter] + " ";
-					wordCounter++;
-				}
-				if (inputFile.eof()) {
-					inputFile.clear();
-					inputFile.close();
-				}
-			}
-		}
-		int r = 0;;
-	}
-
-	//Keep track of unique words (assign a number)
-	// Create output file with numbers in order of input file
-	//Ignore punctuation and newlines
-
-	//Must use file I/O
-	//Must use Exception Handling (try, throw, catch)
-	//Must have at least 3 different test input files (.txt)
-	//Must create a header file, a class source code file, and a main source code file (3 files)
-	//Do not use vectors or include libraries such as algorithm.h or vector.h
-	//Must use inline and block comments (// and /* */)
-	//Function comments go above function declaration
-
-};
-
-int main() {
-	compress cmp;
-	cmp.readFiles();
-	cmp.numAssign();
-	return 0;
-}
